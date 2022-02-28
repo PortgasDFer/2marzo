@@ -103,12 +103,12 @@ const app = new Vue({
         creditos(){
             Swal.fire({
                 title: 'CREDITOS',
-                text: 'Realizado con mucho cariño para ti, Dianita. Gracias por 4 años increíbles a tu lado. Y agradecimientos a las personas que me enseñaron a programar para poder hacer este proyecto realidad.[Elvia, Adriana, Profe Zegarra, Pedro, Adrián, Carlos y Diego]'
+                text: 'Realizado con mucho cariño para ti, Dianita. Gracias por 4 años increíbles a tu lado. Y agradecimientos a las personas que me enseñaron a programar para poder hacer este proyecto realidad.[Elvia, Adriana, Profe Zegarra, Pedro, Adrián, Efrén, Carlos y Diego]'
             });
         }
     },
     computed:{
-        
+
     }
 })
 
