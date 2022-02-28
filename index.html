@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <!-- Font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/movingbubbles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <title>Feliz 4to Aniversario ☺♥</title>
+</head>
+<body>
+    <div id="app">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="instrucciones text-center mt-4">
+                        <h2 class="pinkie mx-auto">Bienvenida</h2>
+                        <p class="text-white">Hola cracksita!!! feliz aniversario.</p>
+                        <div class="instrucciones-text">
+                            <div class="content mt-3">
+                                <h3 class="pinkie">Instrucciones</h3>
+                                <p class="text-white">Responde las preguntas.</p>
+                                <p class="text-white">Por cada respuesta sumaras puntos.</p>
+                                <p class="text-white">Obten la MAYOR cantidad de puntos posibles.</p>
+                                <p class="text-white">Llega al final del juego y obten tu premio.</p>
+                                <img src="img/200w.gif" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 mb-4" id="first-element">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-header primary-purple">
+                            <div class="card-title text-center">BIENVENIDA</div>
+                        </div>
+                        <div class="card-body">
+                            INGRESA TU CONTRASEÑA PARA INICIAR <br>
+                            <input type="password" class="form-control" v-model="enterpass">
+                            <div class="d-grid gap-2 mt-2">
+                                <button class="btn secondary-pink btn-lg" v-on:click="login()">Ingresar</button>
+                            </div>
+
+                            <hr>
+                            <button  class="btn primary-purple" v-on:click="passwordLess()">No me sé la contraseña ¿Qué hago?</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 d-none" id="marcador">
+                <div class="col-xs-12">
+                    <div class="text-center mt-4">
+                        <h2 class="primary-pink mx-auto">PUNTUACIÓN</h2>
+                        <div class="instrucciones-text">
+                            <div class="content mt-3">
+                                <h3 class="text-white">Puntos:  {{puntos}}</h3>
+                                <img src="img/rosita.gif" alt="" width="200" height="200">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 d-none" id="1">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-header primary-purple">
+                            <div class="card-title text-center">Pregunta 1</div>
+                        </div>
+                        <div class="card-body">
+                            <h3>1.- De los siguientes personajes, ¿Quién es mi protagonista favorito?</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/kei.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Kei Kurono
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(10)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/danny.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Danny Phantom
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(5)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/misato.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Misato Katsuragi
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(1)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/ACE.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Portgas D. Ace
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(3)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 d-none" id="2">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-header primary-purple">
+                            <div class="card-title text-center">Pregunta 2</div>
+                        </div>
+                        <div class="card-body">
+                            <h3>2.- ¿Cuál es mi día favorito de la semana?</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/sabado.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Sábado
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(5)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/domingo.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Domingo
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(1)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/jueves.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Feliz Jueves
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(10)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/viernes.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Viernes
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(5)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 d-none" id="3">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-header primary-purple">
+                            <div class="card-title text-center">Pregunta 3</div>
+                        </div>
+                        <div class="card-body">
+                            <h3>3.- ¿Cuándo me regalaste el peluche de perrito?</h3>
+                            <img src="img/perrito.png" alt="" class="img-fluid">
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/aniversario.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    1er aniversario
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(3)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/cumpleaño.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Cumpleaños
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(5)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/examen.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Examen profesional
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(10)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/graduacion.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Graduación
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(1)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 d-none" id="4">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-header primary-purple">
+                            <div class="card-title text-center">Pregunta 4</div>
+                        </div>
+                        <div class="card-body">
+                            <h3>4.- Personaje de MARVEL que más me cae gordo</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/gamora.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Gamora
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(1)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/storm.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Storm
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(10)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/airon.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Iron Man
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(5)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/warmachin.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    War machine
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(3)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 d-none" id="5">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-header primary-purple">
+                            <div class="card-title text-center">Pregunta 5</div>
+                        </div>
+                        <div class="card-body">
+                            <h3>5.- Mi saga de películas favoritas</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/rey.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Star Wars
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(5)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/GURREN.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Gurren Hen / Lagann Hen
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(3)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/evangelion.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Rebuild of Evangelion
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(10)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/hpt.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Harry Potter
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(1)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 d-none" id="6">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-header primary-purple">
+                            <div class="card-title text-center">Pregunta 6</div>
+                        </div>
+                        <div class="card-body">
+                            <h3>6.- ¿Cúal película me gustó más? (de las que hemos visto juntos)</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/vatofeo.jpg" alt="" class="img-fluid" height="100" width="100">
+                                     Historias de miedo para contar en la oscuridad
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(1)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/frousen.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Frozzen 2
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(3)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/pikachu.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Detective Pikachú
+                                    <button class="badge secondary-purple badge-pill"  v-on:click="sumarPuntos(5)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/evan.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Evangelion 3.0 + 1.01
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(10)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 d-none" id="7">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-header primary-purple">
+                            <div class="card-title text-center">Pregunta 7</div>
+                        </div>
+                        <div class="card-body">
+                            <h3>7.- Lugar donde más me ha gustado comer</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/wagapapa.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Wagga Pappa
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(3)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/postreland.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Postreland
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(10)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/subway.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Subway
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(5)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/argentalia.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Argentalia
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(1)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 d-none" id="8">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-header primary-purple">
+                            <div class="card-title text-center">Pregunta 8</div>
+                        </div>
+                        <div class="card-body">
+                            <h3>8.-  Mi helado favorito</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/uva.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Uva
+                                    <button class="badge secondary-purple badge-pill"  v-on:click="sumarPuntos(3)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/queso.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Queso
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(1)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/oreo.jpg" alt="" class="img-fluid" height="100" width="100">
+
+                                    Galleta
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(10)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/nuez.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Nuez
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(1)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 d-none" id="9">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-header primary-purple">
+                            <div class="card-title text-center">Pregunta 9</div>
+                        </div>
+                        <div class="card-body">
+                            <h3>9.-  Saga de videojuegos favorita</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/silent.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Silent Hill
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(5)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/megamanx.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    MegaMan X
+                                    <button class="badge secondary-purple badge-pill"  v-on:click="sumarPuntos(3)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/pes.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    PES
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(1)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/metalgear.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Metal Gear
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(10)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 d-none" id="10">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-header primary-purple">
+                            <div class="card-title text-center">Pregunta 10</div>
+                        </div>
+                        <div class="card-body">
+                            <h3>10.-  Personaje favorito de CAPCOM</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/zero.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Zero
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(10)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/ryu.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Ryu
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(5)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/chunli.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Chun-li
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(3)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/morrigan.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Morrigan
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(1)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 d-none" id="11">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-header primary-purple">
+                            <div class="card-title text-center">Pregunta 11</div>
+                        </div>
+                        <div class="card-body">
+                            <h3>11.-  Un día que jamás olvidaré</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/anifest.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    14 de junio del 2014
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(3)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/putopelondemierda.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    29 de junio del 2014
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(1)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/eeeeeeeeeeeeelchuckylozaaanoooooo.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    17 de junio de 2018
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(5)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/campeon.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    12 de diciembre del 2021
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(10)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 d-none" id="12">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-header primary-purple">
+                            <div class="card-title text-center">Pregunta 12</div>
+                        </div>
+                        <div class="card-body">
+                            <h3>12.-  ¿Quién es mi waifu favorita?</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/nami.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Nami
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(3)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/asuka.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Asuka
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(1)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/yamato.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Yamato
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(10)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/reika.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Reika
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(5)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 d-none" id="13">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-header primary-purple">
+                            <div class="card-title text-center">Pregunta 13</div>
+                        </div>
+                        <div class="card-body">
+                            <h3>13.-  ¿Cúal es mi juego favorito?</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/crono.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Chrono Trigger
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(3)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/mvsc.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Marvel vs Capcom 2
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(10)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/pes16.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    PES 2016
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(1)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/mvssf.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Marvel Super Heroes vs Street Fighter
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(5)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 d-none" id="14">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-header primary-purple">
+                            <div class="card-title text-center">Pregunta 14</div>
+                        </div>
+                        <div class="card-body">
+                            <h3>14.-  ¿Cúal es mi anime favorito?</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/simon.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Gurren Lagann
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(10)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/naru.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Naruto Shippuden
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(3)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/ONEPIECE.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    One Piece
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(5)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/fma.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Full Metal Alchemist
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(1)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 mb-4 d-none" id="15">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-header primary-purple">
+                            <div class="card-title text-center">Pregunta 15</div>
+                        </div>
+                        <div class="card-body">
+                            <h3>15.-  Jugador favorito del Atlas</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/chitopon.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Ponchito Gonzalez
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(1)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/aldorocha.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Aldo Rocha
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(5)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/furch.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Julio Furch
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(3)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <img src="img/camilo.jpg" alt="" class="img-fluid" height="100" width="100">
+                                    Camilo Vargas
+                                    <button class="badge secondary-purple badge-pill" v-on:click="sumarPuntos(10)"><i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 mb-4 d-none" id="premio">
+                <div class="col-xs-12">
+                    <div class="text-center mt-4">
+                        <h2 class="primary-pink mx-auto">FELICIDADES</h2>
+                        <div class="instrucciones-text">
+                            <div class="content mt-3">
+                                <h2 class="text-white">Hazle un screenshot y envíamelo por Whatsapp...</h2>
+                                <h3 class="text-white">Tú premio es:  {{premio}}</h3>
+                                <h4 class="text-white">Hiciste: {{puntos}} puntos</h4>
+                                <button class="btn primary-purple" v-on:click="refresh()">Volver a jugar</button>
+                                <button class="btn secondary-pink" v-on:click="creditos()">Creditos</button>
+                                <img src="img/end.gif" alt="" width="200" height="200">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/movingbubbles.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

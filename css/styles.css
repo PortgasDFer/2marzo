@@ -1,0 +1,89 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    font-family: 'PT Sans', sans-serif;
+}
+
+body{
+    background: #46005d;
+}
+
+.primary-purple{
+    background-color: #7a4791;
+    color: white;
+}
+
+.secondary-purple{
+    background-color: #cfa8d5;
+    color: white;
+}
+
+.primary-pink{
+    background-color: #d58dc8;
+    color: white;
+}
+
+.secondary-pink{
+    background-color: #b964aa;
+    color: white;
+}
+
+.pinkie{
+    color:#b964aa;
+}
+
+.text-white{
+    color:white;
+}
+
+.instrucciones-text{
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    border-color: #d58dc8;
+    border-style: dashed;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.instrucciones-text::after{
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+}
+
+.content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.fade-in {
+    animation: fadeIn 5s;
+    -webkit-animation: fadeIn 5s;
+    -moz-animation: fadeIn 5s;
+    -o-animation: fadeIn 5s;
+    -ms-animation: fadeIn 5s;
+  }
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-moz-keyframes fadeIn {
+    100% {opacity:1;}
+    0% {opacity:0;}
+  }
+  
+  @-webkit-keyframes fadeIn {
+    100% {opacity:1;}
+    0% {opacity:0;}
+  }
+  
+  @-o-keyframes fadeIn {
+    100% {opacity:1;}
+    0% {opacity:0;}
+  }
+  
+  @-ms-keyframes fadeIn {
+    100% {opacity:1;}
+    0% {opacity:0;}
+  }
